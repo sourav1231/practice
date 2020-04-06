@@ -1,0 +1,75 @@
+Skip to content
+Search for:
+C program count total duplicate elements in array
+July 12, 2015PankajC programmingArray, C, Program
+Write a C program to input elements in array from user and count duplicate elements in array. C program to find all duplicate elements in an unsorted array. How to count duplicate elements in array using loop in C programming.
+
+Example
+
+Input
+
+Input array elements: 1, 10, 20, 1, 25, 1, 10, 30, 25, 1
+Output
+
+Total number of duplicate elements = 5
+
+Required knowledge
+Basic Input Output, If else, For loop, Nested loop, Array
+
+Logic to count duplicate elements in array
+
+ 
+
+Step by step descriptive logic to count duplicate elements in array.
+Input size and elements in array from user. Store it in some variable say size and arr.
+Initialize another variable count with 0 to store duplicate count.
+To count total duplicate elements in given array we need two loops. Run an outer loop loop from 0 to size. Loop structure must look like for(i=0; i<size; i++). This loop is used to select each element of array and check next subsequent elements for duplicates elements using another nested loop.
+Run another inner loop to find first duplicate of current array element. Run an inner loop from i + 1 to size, the loop structure should look like for(j=i+1; j<size; j++). Now, why run a loop from i + 1. Because we need to search for duplicate elements in next subsequent elements, from current element.
+Inside inner loop check for duplicate element. If duplicate element is found then increment duplicate count. Which is if(arr[i] == arr[j]) then, count++. Also terminate inner loop if duplicate element is found.
+Learn more about program to print all unique elements in array.
+
+Program to count duplicate elements in array
+/**
+ * C program to count total number of duplicate elements in an array
+ */
+
+#include <stdio.h>
+
+#define MAX_SIZE 100  // Maximum array size
+
+int main()
+{
+    int arr[MAX_SIZE];
+    int i, j, size, count = 0;
+
+    /* Input size of array */
+    printf("Enter size of the array : ");
+    scanf("%d", &size);
+
+    /* Input elements in array */
+    printf("Enter elements in array : ");
+    for(i=0; i<size; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    /*
+     * Find all duplicate elements in array
+     */
+    for(i=0; i<size; i++)
+    {
+        for(j=i+1; j<size; j++)
+        {
+            /* If duplicate found then increment count by 1 */
+            if(arr[i] == arr[j])
+            {
+                count++;
+                break;
+            }
+        }
+    }
+
+    printf("\nTotal number of duplicate elements found in array = %d", count);
+
+    return 0;
+}
