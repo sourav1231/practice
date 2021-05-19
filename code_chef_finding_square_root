@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+int main() {
+int t,n,result;
+cin>>t;
+for(int i=0;i<t;i++)
+{
+    result=0;
+    cin>>n;
+    result=sqrt(n);
+    cout<<result<<endl;
+}
+}
