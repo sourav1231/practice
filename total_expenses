@@ -1,0 +1,20 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+	int t;
+	double total;
+	cin>>t;
+	while(t--){
+	    int q,p;
+	    cin>>q>>p;
+	    total=q*p;
+	    if(q>1000)
+	    {
+	        total=total-(q*p*0.1);
+	        
+	    }
+	   cout<<fixed<<setprecision(6)<<total<<endl;
+	}
+}
