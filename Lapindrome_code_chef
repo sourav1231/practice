@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t=0;
+    cin >> t;
+    for(int j=0 ; j < t ; j++)
+    {
+        string s;
+        cin >> s;
+        int slen=s.length() , left[26]={0} , right[26]={0};
+
+        for(int i=0 ; i < slen/2 ; i++)
+        {
+            left[int(s[i]) - int('a')]++;
+        }
+        for(int i=(slen + 1)/2 ; i < slen ; i++)
+        {
+            right[int(s[i]) - int('a')]++;
+        }
+
+        slen = 0;
+        for(int i=0 ; i<26 ; i++)
+        {
+            if(left[i] != right[i])
+            {
+                slen = 1;
+                break;
+            }
+        }
+
+        if((slen == 0) && (s.length() > 1))
+        {
+            cout << "YES\n";
+        }
+        else
+        {
+            cout << "NO\n";
+        }
+    }
+    return 0;
+}
